@@ -28,7 +28,7 @@ class App:
         self.quit_button = tk.Button(master, text="Sair", command=master.quit)
         self.quit_button.pack()
 
-        //Conecta servidor
+#Conecta o servidor
         self.client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         self.client_socket.connect(('localhost', 8000))
 
