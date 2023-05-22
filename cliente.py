@@ -28,6 +28,7 @@ class App:
         self.quit_button = tk.Button(master, text="Sair", command=master.quit)
         self.quit_button.pack()
 
+        //Conecta servidor
         self.client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         self.client_socket.connect(('localhost', 8000))
 
@@ -53,7 +54,7 @@ class App:
             self.guess_button.config(state="disabled")
         elif resultado == 'Perdeu':
             self.result_label.config(
-                text="Você perdeu o jogo. O número era {}.".format(palpite))
+                text="Você perdeu o jogo.")
             self.client_socket.close()
             self.guess_button.config(state="disabled")
         elif resultado == 'Empate':
@@ -73,7 +74,7 @@ class App:
         self.client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         self.client_socket.connect(('localhost', 8000))
 
-
+#Cria a janela principal e instancia a classe app
 root = tk.Tk()
 app = App(root)
 root.mainloop()
